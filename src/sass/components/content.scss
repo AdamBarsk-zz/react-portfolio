@@ -1,0 +1,113 @@
+@import '../mixins/index.scss';
+@import "../variables/colors.scss";
+@import "../variables/other.scss";
+
+.content-container {
+	display: grid;
+	height: 100%;
+	width: 100vw;
+	padding: 15px;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 50px;
+	grid-template-areas: 
+		"content"
+		".";
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		grid-template-columns: 1fr 50px 50px 1fr;
+		grid-template-rows: 1fr 50px 50px 1fr;
+		grid-template-areas: 
+			"skills skills projects projects"
+			"skills skills projects projects"
+			"about about resume resume"
+			"about about resume resume";
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding: 20px;
+	}
+}
+
+.content-- {
+	&skills {
+		@include grid-content-alignment(skills);
+	}
+
+	&projects {
+		@include grid-content-alignment(projects);
+	}
+
+	&about {
+		@include grid-content-alignment(about);
+	}
+
+	&resume {
+		@include grid-content-alignment(resume);
+	}
+
+	&skills, &projects, &about, &resume {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 0.5s linear;
+		display: flex;
+		flex-flow: column;
+		overflow: auto;
+		@include shadow(0.3);
+
+		& section {
+			padding: 0 15px;
+		}
+
+		& article {
+			margin-bottom: 15px;
+
+			& a {
+				margin-bottom: 3px;
+				display: table;
+			}
+
+			& p {
+				margin-bottom: 10px;
+			}
+		}
+
+		&.hidden {
+			visibility: hidden;
+  		opacity: 0;
+  		transition: visibility 0s 0.5s, opacity 0.5s linear;
+		}
+	}
+
+
+	&icons {
+		z-index: 1;
+		display: grid;
+		grid-column: 1; 
+		grid-row: 2;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+
+		@media screen and (min-width: $breakpoint-desktop) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			grid-column-gap: 10px;
+			grid-row-gap: 10px;
+			grid-row: 2 / span 2;
+			grid-column: 2 / span 2;
+    }
+
+		& .icon {
+			@include clear-button();
+			width: 100%;
+			height: 100%;
+			color: $black;
+			transition: color 0.7s linear;
+
+			&.active {
+				color: $header;
+				transition: color 0.3s linear;
+			}
+		}
+	}
+}
+
