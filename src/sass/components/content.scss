@@ -14,6 +14,7 @@
 		".";
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
+	background-color: $main;
 
 	@media screen and (min-width: $breakpoint-desktop) {
 		grid-template-columns: 1fr 50px 50px 1fr;
@@ -53,11 +54,8 @@
 		display: flex;
 		flex-flow: column;
 		overflow: auto;
+		background-color: $white;
 		@include shadow(0.3);
-
-		& section {
-			padding: 0 15px;
-		}
 
 		& article {
 			margin-bottom: 15px;
@@ -103,10 +101,20 @@
 			color: $black;
 			transition: color 0.7s linear;
 
-			&.active {
-				color: $header;
-				transition: color 0.3s linear;
+			@media screen and (min-width: $breakpoint-desktop) {
+				color: $white; 
 			}
+
+			&.active {
+				color: $white;
+				transition: color 0.3s linear;
+
+				@media screen and (min-width: $breakpoint-desktop) {
+					color: $black;
+				}
+			}
+
+
 		}
 	}
 }

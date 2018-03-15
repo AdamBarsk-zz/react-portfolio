@@ -3,6 +3,7 @@ import Content from './Content';
 import Buttons from './Buttons';
 import Header from '../components/Header';
 
+
 export default class App extends Component {
   state = {
     contents: [
@@ -10,55 +11,53 @@ export default class App extends Component {
         id: 'Skills',
         category: 'skills',
         active: false,
-        icon: 'code'
+        icon: 'code',
       },
       {
         id: 'Projects',
         category: 'projects',
         active: false,
-        icon: 'code-branch'
+        icon: 'code-branch',
       },
       {
         id: 'About',
         category: 'about',
         active: true,
-        icon: 'user-alt'
+        icon: 'user-alt',
       },
       {
         id: 'Resume',
         category: 'resume',
         active: false,
-        icon:'briefcase'
+        icon: 'briefcase',
       },
-    ]
-	}
-
-	handleClick = id => {
-    window.innerWidth >= 420
-    ?
-    this.setState({
-      ...this.state,
-      contents: this.state.contents.map(el => 
-        el.id === id ? {...el, active: !el.active} : el
-      ) 
-    })
-    :
-    this.setState({
-      ...this.state,
-      contents: this.state.contents.map(el => 
-        el.id === id ? {...el, active: !el.active} : {...el, active: false}
-      ) 
-    })
+    ],
   }
-  
+
+  handleClick = (id) => {
+    window.innerWidth >= 420
+      ?
+      this.setState({
+        ...this.state,
+        contents: this.state.contents.map(el =>
+          (el.id === id ? { ...el, active: !el.active } : el)),
+      })
+      :
+      this.setState({
+        ...this.state,
+        contents: this.state.contents.map(el =>
+          (el.id === id ? { ...el, active: !el.active } : { ...el, active: false })),
+      });
+  }
+
   render() {
     return (
       <div className="site-container">
         <Header />
         <div className="content-container">
-          <Content {...this.state}/>
+          <Content {...this.state} />
           <div className="content--icons">
-            <Buttons {...this.state} handleClick={this.handleClick}/>
+            <Buttons {...this.state} handleClick={this.handleClick} />
           </div>
         </div>
       </div>

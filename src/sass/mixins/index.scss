@@ -1,8 +1,7 @@
 @import "../variables/colors.scss";
 
 @mixin grid-content-alignment($area) {
-	padding: 20px 70px 20px 20px;
-	background-color: $main;
+	padding: 20px;
 	grid-area: content;
 
 	@media screen and (min-width: $breakpoint-desktop) {

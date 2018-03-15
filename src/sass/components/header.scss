@@ -8,7 +8,7 @@
 	grid-template-rows: 1fr;
 	justify-content: center;
 	align-items: center;
-	background: $main;
+	background: $header;
 	height: 120px;
 	min-height: 120px;
 	z-index: 1;
@@ -42,10 +42,15 @@
 
 		& a {
 			margin-bottom: 3px;
-			display: table;  
+			display: table;
+			color: $white;
 
 			&:last-of-type {
 				margin-bottom: 0;
+			}
+
+			&:hover {
+				color: $black;
 			}
 		}
 	}
