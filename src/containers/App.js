@@ -22,7 +22,7 @@ export default class App extends Component {
       {
         id: 'About',
         category: 'about',
-        active: true,
+        active: window.innerWidth >= 420 ? true : false,
         icon: 'user-alt',
       },
       {
