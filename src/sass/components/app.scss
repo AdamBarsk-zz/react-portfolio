@@ -1,6 +1,10 @@
+@import "../variables/other.scss";
+
 body, html {
 	margin: 0;
 	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
 
 * {
@@ -8,8 +12,8 @@ body, html {
 }
 
 .site-container {
-	width: 100%;
 	height: 100vh;
+	width: 100%;
 	flex-flow: column;
 	display: flex;
 }
